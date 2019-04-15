@@ -216,10 +216,12 @@ def main():
             cmd = [sys.executable, "-u",
                    args.training_script] + args.training_script_args
         else:
+            print("in else print cmd",cmd)
             cmd = [sys.executable,
                    "-u",
                    args.training_script,
                    "--local_rank={}".format(local_rank)] + args.training_script_args
+            print("in else print cmd",cmd)
 
         process = subprocess.Popen(cmd, env=current_env)
         processes.append(process)
